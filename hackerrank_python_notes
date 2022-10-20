@@ -1,0 +1,3 @@
+# Hackerrank Notes
+
+When unpacking an iterable, if you place a * before the last variable, it will take all the remaining items to be unpacked and save them to that variable as a list
