@@ -10,3 +10,5 @@
     - Can also have finally block that executes regardless of if they try block creates an error or not
     - Can also use raise keyword to create your own error given certain logic is satisfied
 - *args as a parameter will pick up remaining entries in list as a list to be used in the function
+- Convert list to tuple using tuple()
+- Need to read and learn more about use cases for stdin and stdout
