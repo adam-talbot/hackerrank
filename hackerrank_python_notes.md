@@ -12,3 +12,4 @@
 - *args as a parameter will pick up remaining entries in list as a list to be used in the function
 - Convert list to tuple using tuple()
 - Need to read and learn more about use cases for stdin and stdout
+- There is a swapcase() method in python
