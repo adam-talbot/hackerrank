@@ -25,3 +25,8 @@ where lat_n between 38.7880 and 137.2345;
 
 select(ceil((avg(Salary)) - (avg(replace(Salary, "0", "")))))
 from employees;
+
+-- Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is less than . Truncate your answer to  decimal places.
+select truncate(max(lat_n), 4)
+from station
+where lat_n < 137.2345;
