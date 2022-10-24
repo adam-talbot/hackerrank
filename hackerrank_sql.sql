@@ -37,3 +37,10 @@ from station
 where lat_n < 137.2345
 order by lat_n desc
 limit 1;
+
+-- Query the smallest Northern Latitude (LAT_N) from STATION that is greater than . Round your answer to  decimal places.
+select round(lat_n, 4)
+from station
+where lat_n > 38.7780
+order by lat_n
+limit 1;
