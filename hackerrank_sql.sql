@@ -44,3 +44,31 @@ from station
 where lat_n > 38.7780
 order by lat_n
 limit 1;
+
+-- (Medium) Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation.
+-- The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
+-- Note: Print NULL when there are no more names corresponding to an occupation.)
+
+-- with if
+select -- have to use max even though there will only be one value per row since group by expects aggregation
+    max(if(occupation = 'Doctor', name, null)) as Doctor,
+    max(if(occupation = 'Professor', name, null)) as Professor,
+    max(if(occupation = 'Singer', name, null)) as Singer,
+    max(if(occupation = 'Actor', name, null)) as Actor
+from
+    (select 
+     occupation, name, ROW_NUMBER() OVER(PARTITION BY Occupation ORDER BY name) AS rn
+     from occupations) as t1 -- need to partition by occupation first and get row number after alphebetizing
+group by rn; -- when you group by row number you get value for that row, if present
+
+-- with case statement
+select 
+    max(case when occupation = 'Doctor' then name else null end) as Doctor,
+    max(case when occupation = 'Professor' then name else null end) as Professor,
+    max(case when occupation = 'Singer' then name else null end) as Singer,
+    max(case when occupation = 'Actor' then name else null end) as Actor
+from
+    (select 
+     occupation, name, ROW_NUMBER() OVER(PARTITION BY Occupation ORDER BY name) AS rn
+     from occupations) as t1
+group by rn;
