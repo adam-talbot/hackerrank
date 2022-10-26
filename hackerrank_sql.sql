@@ -72,3 +72,5 @@ from
      occupation, name, ROW_NUMBER() OVER(PARTITION BY Occupation ORDER BY name) AS rn
      from occupations) as t1
 group by rn;
+
+-- did some more station problems similar to those above
