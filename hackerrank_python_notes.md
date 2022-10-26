@@ -13,3 +13,4 @@
 - Convert list to tuple using tuple()
 - Need to read and learn more about use cases for stdin and stdout
 - There is a swapcase() method in python
+- F string interpolation in Python - f'string {variable} string'
