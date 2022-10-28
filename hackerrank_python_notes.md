@@ -16,3 +16,4 @@
 - F string interpolation in Python - f'string {variable} string'
 - String in python are immutable but you can convert them to a mutable list and then change and then convert back to string
     - Can also use string slicing to modify them
+- string.find(sub_string) returns index where substring starts in string
