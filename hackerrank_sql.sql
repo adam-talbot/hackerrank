@@ -97,3 +97,37 @@ select continent, floor(avg(city.population))
 from city
 join country on city.countrycode = country.code
 group by continent;
+
+-- Draw the Triangle 1
+-- P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+
+-- * * * * * 
+-- * * * * 
+-- * * * 
+-- * * 
+-- *
+
+-- Write a query to print the pattern P(20).
+
+-- declare the number of lines as a variable
+SET @no_of_lines := 21; 
+-- use select statment to loop until 0
+SELECT REPEAT('* ', @no_of_lines := @no_of_lines - 1) 
+-- The INFORMATION_SCHEMA.TABLES view allows you to get information about all tables and views within a database. The actual values of INFORMATION_SCHEMA.TABLES is not required but we need a from statement to run the sql query.
+FROM INFORMATION_SCHEMA.TABLES;
+
+-- Draw the Triangle 2
+-- P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+
+-- * 
+-- * * 
+-- * * * 
+-- * * * * 
+-- * * * * *
+
+-- Write a query to print the pattern P(20).
+
+SET @x:=0; 
+SELECT REPEAT('* ', @x:= @x + 1) 
+FROM INFORMATION_SCHEMA.TABLES
+WHERE @x < 20;
