@@ -18,3 +18,4 @@
     - Can also use string slicing to modify them
 - string.find(sub_string) returns index where substring starts in string
 - any() function will return true if any value in the iterable passed to it is true
+- string.replace(oldvalue, newvalue, count)
