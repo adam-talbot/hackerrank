@@ -19,3 +19,4 @@
 - string.find(sub_string) returns index where substring starts in string
 - any() function will return true if any value in the iterable passed to it is true
 - string.replace(oldvalue, newvalue, count)
+- sets are used to check membership and eliminate duplcate entries
