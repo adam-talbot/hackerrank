@@ -143,3 +143,10 @@ WHERE @x < 20;
 -- |x1 - x2| + |y1 - y2|
 select round((abs(min(lat_n) - max(lat_n)) + abs(min(long_w) - max(long_w))), 4)
 from station;
+
+-- Weather Observation Station 19
+-- Consider  and  to be two points on a 2D plane where  are the respective minimum and maximum values of Northern Latitude (LAT_N) and  are the respective minimum and maximum values of Western Longitude (LONG_W) in STATION.
+-- Query the Euclidean Distance between points  and  and format your answer to display  decimal digits.
+
+select round(SQRT((power(min(lat_n) - max(lat_n), 2) + power(min(long_w) - max(long_w), 2))), 4)
+from station;
