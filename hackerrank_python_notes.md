@@ -21,3 +21,6 @@
 - string.replace(oldvalue, newvalue, count)
 - sets are used to check membership and eliminate duplcate entries
 - set.add() is analogous to list.append()
+- set.remove() remove value from set, returns key error if value not present, returns None
+- set.discard() remove value from set, returns key error if value not present, returns None
+- set.pop() removes first? value from set, returns key error if set in empty, returns value popped
