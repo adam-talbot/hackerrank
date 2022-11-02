@@ -150,3 +150,26 @@ from station;
 
 select round(SQRT((power(min(lat_n) - max(lat_n), 2) + power(min(long_w) - max(long_w), 2))), 4)
 from station;
+
+-- Weather Observation Station 20
+SELECT CASE
+    WHEN G.grade > 7 THEN S.name
+    ELSE NULL
+    end AS names,
+    G.grade,
+    S.marks
+FROM   students S
+    JOIN grades G
+    ON S.marks BETWEEN G.min_mark AND G.max_mark
+ORDER  BY G.grade DESC,
+    names ASC,
+    S.marks ASC;
+
+-- need to do more research about how this join is happening with the between in the join condition
+
+SELECT IF(GRADES.GRADE>=8, STUDENTS.NAME, NULL),GRADES.GRADE, STUDENTS.MARKS
+FROM GRADES, STUDENTS
+WHERE STUDENTS.MARKS BETWEEN GRADES.MIN_MARK AND GRADES.MAX_MARK
+ORDER BY GRADES.GRADE DESC, STUDENTS.NAME;
+
+-- join using where clause, research pros and cons to this syntax
