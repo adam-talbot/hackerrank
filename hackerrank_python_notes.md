@@ -24,3 +24,4 @@
 - set.remove() remove value from set, returns key error if value not present, returns None
 - set.discard() remove value from set, returns key error if value not present, returns None
 - set.pop() removes first? value from set, returns key error if set in empty, returns value popped
+- print(*iterable) prints all elements of the iterable separated by a space
