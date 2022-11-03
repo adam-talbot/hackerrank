@@ -173,3 +173,20 @@ WHERE STUDENTS.MARKS BETWEEN GRADES.MIN_MARK AND GRADES.MAX_MARK
 ORDER BY GRADES.GRADE DESC, STUDENTS.NAME;
 
 -- join using where clause, research pros and cons to this syntax
+
+-- Top Competitors
+-- Julia just finished conducting a coding contest, and she needs your help assembling the leaderboard! Write a query to print the respective hacker_id and name of hackers 
+-- who achieved full scores for more than one challenge. Order your output in descending order by the total number of challenges in which the hacker earned a full score. 
+-- If more than one hacker received full scores in same number of challenges, then sort them by ascending hacker_id.
+
+select hacker_id, name from
+(select s.hacker_id, h.name, count(s.hacker_id) as count
+from submissions as s
+join challenges as c using(challenge_id) -- to get difficulty level
+join difficulty as d on c.difficulty_level = d.difficulty_level and d.score = s.score-- to get max score and filter for full marks
+join hackers as h on s.hacker_id = h.hacker_id -- to get name
+group by s.hacker_id, h.name
+having count > 1
+order by count desc, s.hacker_id) as t1;
+
+-- could also potentially use case statement to get full marks column and filter on that instead of using and condition in join statement but gets more complicated since select is performed after where
