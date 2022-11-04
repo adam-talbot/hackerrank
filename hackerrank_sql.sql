@@ -166,6 +166,7 @@ ORDER  BY G.grade DESC,
     S.marks ASC;
 
 -- need to do more research about how this join is happening with the between in the join condition
+-- will only join the record if the S.mark is between the G.min_mark and G.max_mark
 
 SELECT IF(GRADES.GRADE>=8, STUDENTS.NAME, NULL),GRADES.GRADE, STUDENTS.MARKS
 FROM GRADES, STUDENTS
