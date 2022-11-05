@@ -22,6 +22,7 @@
 - sets are used to check membership and eliminate duplcate entries
 - set.add() is analogous to list.append()
 - set.remove() remove value from set, returns key error if value not present, returns None
-- set.discard() remove value from set, returns key error if value not present, returns None
+- set.discard() remove value from set, doesn't return key error if value not present, returns None
 - set.pop() removes first? value from set, returns key error if set in empty, returns value popped
 - print(*iterable) prints all elements of the iterable separated by a space
+- list comprehension is better than map() because it returns a list and not a weird object
