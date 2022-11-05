@@ -151,19 +151,21 @@ from station;
 select round(SQRT((power(min(lat_n) - max(lat_n), 2) + power(min(long_w) - max(long_w), 2))), 4)
 from station;
 
--- Weather Observation Station 20
-SELECT CASE
-    WHEN G.grade > 7 THEN S.name
-    ELSE NULL
-    end AS names,
-    G.grade,
-    S.marks
-FROM   students S
-    JOIN grades G
-    ON S.marks BETWEEN G.min_mark AND G.max_mark
-ORDER  BY G.grade DESC,
-    names ASC,
-    S.marks ASC;
+-- The Report
+-- Ketty gives Eve a task to generate a report containing three columns: Name, Grade and Mark. Ketty doesn't want the NAMES of those students who received a grade lower than 8. 
+-- The report must be in descending order by grade -- i.e. higher grades are entered first. If there is more than one student with the same grade (8-10) assigned to them, 
+-- order those particular students by their name alphabetically. Finally, if the grade is lower than 8, use "NULL" as their name and list them by their grades in descending order. 
+-- If there is more than one student with the same grade (1-7) assigned to them, order those particular students by their marks in ascending order. Write a query to help Eve.
+SELECT 
+    CASE WHEN g.grade > 7 THEN s.name ELSE NULL end AS name,
+    g.grade,
+    s.marks
+FROM students as s
+JOIN grades as g
+ON s.marks BETWEEN g.min_mark AND g.max_mark -- joins the corresponding row when marks is between these values
+ORDER BY g.grade DESC,
+    name ASC,
+    s.marks ASC;
 
 -- need to do more research about how this join is happening with the between in the join condition
 -- will only join the record if the S.mark is between the G.min_mark and G.max_mark
