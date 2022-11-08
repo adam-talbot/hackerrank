@@ -26,3 +26,5 @@
 - set.pop() removes first? value from set, returns key error if set in empty, returns value popped
 - print(*iterable) prints all elements of the iterable separated by a space
 - list comprehension is better than map() because it returns a list and not a weird object
+- itertools.permutations(), if iterable is sorted, permutations will also be sorted
+- sorted(string) will sort characters of string alphabetically
