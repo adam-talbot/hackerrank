@@ -28,3 +28,4 @@
 - list comprehension is better than map() because it returns a list and not a weird object
 - itertools.permutations(), if iterable is sorted, permutations will also be sorted
 - sorted(string) will sort characters of string alphabetically
+- you can right, left, and center align text in print statements using rjust, ljust, and center
