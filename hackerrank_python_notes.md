@@ -29,3 +29,5 @@
 - itertools.permutations(), if iterable is sorted, permutations will also be sorted
 - sorted(string) will sort characters of string alphabetically
 - you can right, left, and center align text in print statements using rjust, ljust, and center
+- divmod() returns tuple of integer divison and mod operator
+- // is operator for integer division (whole number is returned an remainder/fraction/decimal is discarded)
