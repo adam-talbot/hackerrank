@@ -223,3 +223,20 @@ join packages as p using(id)
 join packages as p2 on p2.id = f.friend_id
 where p.salary < p2.salary
 order by p2.salary;
+
+
+-- select 
+--     id, 
+--     age, 
+--     coins_needed
+--     power
+-- from wands
+-- join wands_property using(code)
+-- where is_evil = 0
+-- and coins_needed = (
+
+-- )
+-- order by power desc, age desc;
+
+-- use this problem to experiement with window functions
+-- group by two columns and take min agg then get last column
