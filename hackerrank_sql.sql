@@ -225,18 +225,21 @@ where p.salary < p2.salary
 order by p2.salary;
 
 
--- select 
---     id, 
---     age, 
---     coins_needed
---     power
--- from wands
--- join wands_property using(code)
--- where is_evil = 0
--- and coins_needed = (
+-- Ollivander's Inventory
+-- Harry Potter and his friends are at Ollivander's with Ron, finally replacing Charlie's old broken wand.
+-- Hermione decides the best way to choose is by determining the minimum number of gold galleons needed to buy each non-evil wand of high power and age. 
+-- Write a query to print the id, age, coins_needed, and power of the wands that Ron's interested in, sorted in order of descending power. 
+-- If more than one wand has same power, sort the result in order of descending age.
+-- The mapping between code and age is one-one, meaning that if there are two pairs,  and , then  and .
 
--- )
--- order by power desc, age desc;
-
--- use this problem to experiement with window functions
--- group by two columns and take min agg then get last column
+SELECT w.id, h.age, h.min_coins, h.power -- select final cols
+FROM(
+    SELECT w.code, wp.age, min(w.coins_needed) AS min_coins, w.power -- code only included to join back (each age and code are exclusive pairs)
+        FROM wands as w
+            JOIN wands_property as wp
+                ON w.code = wp.code
+            WHERE wp.is_evil != 1
+            GROUP BY w.code, wp.age, w.power) AS h -- gives unique combinations of age and power and min coins
+INNER JOIN wands as w -- join back to get only rows with coins and code matches (need both to get right associated power)
+     ON h.min_coins = w.coins_needed and h.code = w.code
+ORDER BY h.power DESC, h.age DESC;
