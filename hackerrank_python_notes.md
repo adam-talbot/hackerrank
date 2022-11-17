@@ -31,3 +31,4 @@
 - you can right, left, and center align text in print statements using rjust, ljust, and center
 - divmod() returns tuple of integer divison and mod operator
 - // is operator for integer division (whole number is returned an remainder/fraction/decimal is discarded)
+- taking the union of sets returns set with all unique values from each set
